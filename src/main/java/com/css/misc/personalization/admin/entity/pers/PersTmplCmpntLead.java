@@ -6,13 +6,16 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+import com.css.misc.personalization.admin.entity.interfaces.WithRegnCde;
+import com.css.misc.personalization.admin.entity.interfaces.WithSuplrId;
+import com.css.misc.personalization.admin.entity.interfaces.WithTmplCmpntId;
 import com.css.misc.personalization.admin.model.StatefulEntity;
-import com.css.misc.personalization.admin.model.pk.EffDteKey;
+import com.css.misc.personalization.admin.model.pk.LeadTimePK;
 
 @Entity
 @Table(name="PERS_TMPL_CMPNT_LEAD")
-@IdClass(EffDteKey.class)
-public class PersTmplCmpntLead extends StatefulEntity{
+@IdClass(LeadTimePK.class)
+public class PersTmplCmpntLead extends StatefulEntity implements WithTmplCmpntId,WithRegnCde,WithSuplrId{
 	@Id
 	@Column(name="TMPL_CMPNT_ID")
 	private String tmplCmpntId;

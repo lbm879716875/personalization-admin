@@ -57,6 +57,12 @@ public class SortHelper {
 			try {
 				Comparable toCompare1 = (Comparable)getter.invoke(o1);
 				Comparable toCompare2 = (Comparable)getter.invoke(o2);
+				if(toCompare1==null&&toCompare2!=null)
+					return 1;
+				if(toCompare1!=null&&toCompare2==null)
+					return -1;
+				if(toCompare1==null&&toCompare2==null)
+					return 0;
 				if(SortDirection.ASC==sortDirection)
 					return toCompare1.compareTo(toCompare2);
 				else 

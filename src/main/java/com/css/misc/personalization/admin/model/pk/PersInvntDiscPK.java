@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.css.misc.personalization.admin.entity.common.PersInvntDisc;
+
 public class PersInvntDiscPK implements Serializable {
 	/**
 	 * 
@@ -28,6 +30,14 @@ public class PersInvntDiscPK implements Serializable {
 		this.regnRefCde = regnRefCde;
 		this.discTag = discTag;
 		this.startDte = startDte;
+	}
+
+
+	public PersInvntDiscPK(PersInvntDisc pid) {
+		this.invntId=pid.getInvntId();
+		this.regnRefCde=pid.getRegnRefCde();
+		this.discTag=pid.getDiscTag();
+		this.startDte=pid.getStartDte();
 	}
 
 

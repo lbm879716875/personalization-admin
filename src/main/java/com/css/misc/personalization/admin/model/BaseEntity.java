@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+
+
 @MappedSuperclass
 public abstract class BaseEntity {
 	@Column(name="LAST_MOD_EMPL_NBR")

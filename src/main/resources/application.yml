@@ -1,3 +1,8 @@
+app:
+  version: 1.0
+  env: ${APP_ENV:dev}
+  logoutUrl: ${LOGOUT_URL:https://casuat.chowsangsang.com/cas/logout}
+
 spring:
   application:
     name: personalization-admin
@@ -67,9 +72,13 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.Oracle12cDialect
     open-in-view: true
+    show-sql: false
     hibernate:
       hbm2ddl.auto: none
       ddl-auto: none
+    properties:
+      hibermate:
+        show_sql: false
 
 
 server:

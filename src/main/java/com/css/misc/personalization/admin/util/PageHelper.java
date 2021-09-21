@@ -16,6 +16,8 @@ public class PageHelper {
 		Integer startIndex = (pageNo)*pageSize;
 		Integer endIndex = (pageNo+1)*pageSize;
 		Integer listSize = sortedList.size();
+		if(listSize==0)
+			return sortedList;
 		if(startIndex>listSize-1)
 			throw new InvalidParameterException("page no is over");
 		

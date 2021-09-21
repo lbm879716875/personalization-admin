@@ -12,4 +12,5 @@ public interface PersInvntDiscDaoCommon {
 	@Transactional
 	@Modifying
 	List<PersInvntDisc> deleteByDiscTag(String discTag);
+	public Integer countByDiscTag(String discTag);
 }

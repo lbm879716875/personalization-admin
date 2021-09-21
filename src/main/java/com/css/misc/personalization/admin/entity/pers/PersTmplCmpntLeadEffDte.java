@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.css.misc.personalization.admin.model.StatefulEntity;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 
 @Entity
@@ -37,12 +39,6 @@ public class PersTmplCmpntLeadEffDte extends StatefulEntity{
 	@Column(name="LEAD_TIME_WOUT_STOCK")
 	private BigDecimal leadTimeWoutStock;
 
-	@Transient 
-	private String procNam;
-	@Transient 
-	private String ruleJsonCtent;
-	@Transient 
-	private boolean effectived=false;
 	
 
 	public Integer getTmplCmpntEffId() {
@@ -92,24 +88,6 @@ public class PersTmplCmpntLeadEffDte extends StatefulEntity{
 	}
 	public void setLeadTimeWoutStock(BigDecimal leadTimeWoutStock) {
 		this.leadTimeWoutStock = leadTimeWoutStock;
-	}
-	public String getProcNam() {
-		return procNam;
-	}
-	public void setProcNam(String procNam) {
-		this.procNam = procNam;
-	}
-	public String getRuleJsonCtent() {
-		return ruleJsonCtent;
-	}
-	public void setRuleJsonCtent(String ruleJsonCtent) {
-		this.ruleJsonCtent = ruleJsonCtent;
-	}
-	public boolean isEffectived() {
-		return effectived;
-	}
-	public void setEffectived(boolean effectived) {
-		this.effectived = effectived;
 	}
 	
 	

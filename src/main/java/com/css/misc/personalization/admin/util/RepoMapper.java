@@ -19,18 +19,19 @@ import org.springframework.stereotype.Component;
 
 import com.css.misc.personalization.admin.constant.Db;
 import com.css.misc.personalization.admin.constant.Tb;
+import com.css.misc.personalization.admin.dao.CssJpaRepository;
 
 @Component
 public class RepoMapper {
 	private static final Log log = LogFactory.getLog(RepoMapper.class);
-	Map<Db,Map<Tb,JpaRepository>> repoMap = new HashMap<>();
-	Map<Tb,JpaRepository> shpdRepoMap = new HashMap<>();
-	Map<Tb,JpaRepository> alphaRepoMap = new HashMap<>();
+	Map<Db,Map<Tb,CssJpaRepository>> repoMap = new HashMap<>();
+	Map<Tb,CssJpaRepository> shpdRepoMap = new HashMap<>();
+	Map<Tb,CssJpaRepository> alphaRepoMap = new HashMap<>();
 	
-	@Autowired List<JpaRepository> repoList;
+	@Autowired List<CssJpaRepository> repoList;
 	@PostConstruct
 	private void init() {
-		for(JpaRepository repo:repoList) {
+		for(CssJpaRepository repo:repoList) {
 			Db db;
 			Tb tb;
 			
@@ -46,7 +47,7 @@ public class RepoMapper {
 			Type[] interfaceTypes = clazz.getGenericInterfaces();
 			Class<?> entityClass=null;
 			for(Type type:interfaceTypes) {
-				if(type.getTypeName().contains("JpaRepository")) {
+				if(type.getTypeName().contains("CssJpaRepository")) {
 					ParameterizedType pt = (ParameterizedType)type;
 					entityClass = (Class<?>) pt.getActualTypeArguments()[0];
 					break;
@@ -77,7 +78,7 @@ public class RepoMapper {
 		repoMap.put(Db.SHPD, shpdRepoMap);
 	}
 	
-	public JpaRepository get(Db db,Tb tb) {
+	public CssJpaRepository get(Db db,Tb tb) {
 		return repoMap.get(db).get(tb);
 	}
 }
